@@ -1,10 +1,10 @@
 package ru.kao.kaonotebackend.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.kao.kaonotebackend.dto.EmailDTO;
 import ru.kao.kaonotebackend.entity.Account;
 import ru.kao.kaonotebackend.service.AccountService;
 
@@ -24,9 +24,9 @@ public class AccountController {
      * @param email email data transfer object
      * @return found account
      */
-    @GetMapping("/account")
-    public Account getAccount(@RequestBody EmailDTO email) {
-        return service.getAccount(email.email);
+    @GetMapping("/account/{email}")
+    public Account getAccount(@PathVariable("email") String email) {
+        return service.getAccount(email);
     }
 
     /**
@@ -34,9 +34,9 @@ public class AccountController {
      * @param email email data transfer object
      * @return true or false
      */
-    @GetMapping("/account/exists")
-    public boolean existsAccount(@RequestBody EmailDTO email) {
-        return service.existsAccount(email.email);
+    @GetMapping("/account/exists/{email}")
+    public boolean existsAccount(@PathVariable("email") String email) {
+        return service.existsAccount(email);
     }
 
     /**
