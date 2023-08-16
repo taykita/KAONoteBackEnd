@@ -26,7 +26,8 @@ public class StartupRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         LOGGER.debug("Initial filling of the database started");
 
-        Account adminAccount = new Account("admin@admin", "Admin", "Adminov");
+        Account adminAccount = new Account("admin@admin", "Admin", "Adminov",
+                "qwe@qwe", false, false, false, true);
         if (!accountRepository.existsAccountByEmail(adminAccount.email))
             accountRepository.save(adminAccount);
 

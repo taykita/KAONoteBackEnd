@@ -16,10 +16,17 @@ public class Account {
     public Account() {
     }
 
-    public Account(String email, String firstName, String lastName) {
+    public Account(String email, String firstName, String lastName,
+                   String password, boolean isExpired, boolean isLocked,
+                   boolean isCredentialsExpired, boolean isEnabled) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.password = password;
+        this.isExpired = isExpired;
+        this.isLocked = isLocked;
+        this.isCredentialsExpired = isCredentialsExpired;
+        this.isEnabled = isEnabled;
     }
 
     public Account(String email, String firstName, String lastName, List<Note> notes, List<Task> tasks) {
@@ -41,10 +48,18 @@ public class Account {
 
     public String lastName;
 
+    public String password;
+
+    public boolean isExpired;
+
+    public boolean isLocked;
+
+    public boolean isCredentialsExpired;
+    public boolean isEnabled;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
     public List<Note> notes = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
     public List<Task> tasks = new ArrayList<>();
-
 }

@@ -3,6 +3,11 @@ CREATE TABLE ACCOUNT (
     email varchar(50) NOT NULL,
     first_name varchar(30),
     last_name varchar(30),
+    password varchar(50),
+    is_expired bool,
+    is_locked bool,
+    is_credentials_expired bool,
+    is_enabled bool,
     PRIMARY KEY (ID)
 );
 
