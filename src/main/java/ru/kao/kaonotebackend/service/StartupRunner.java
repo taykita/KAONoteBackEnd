@@ -1,6 +1,5 @@
 package ru.kao.kaonotebackend.service;
 
-import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

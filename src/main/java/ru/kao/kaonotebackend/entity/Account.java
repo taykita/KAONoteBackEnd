@@ -37,6 +37,12 @@ public class Account {
         this.tasks = tasks;
     }
 
+    public Account(String email, String firstName, String lastName) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     @Id
     @SequenceGenerator(name = "ACCOUNT_SEQ", allocationSize = 10)
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "ACCOUNT_SEQ")
@@ -62,4 +68,21 @@ public class Account {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
     public List<Task> tasks = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
+                ", isExpired=" + isExpired +
+                ", isLocked=" + isLocked +
+                ", isCredentialsExpired=" + isCredentialsExpired +
+                ", isEnabled=" + isEnabled +
+                ", notes=" + notes +
+                ", tasks=" + tasks +
+                '}';
+    }
 }
