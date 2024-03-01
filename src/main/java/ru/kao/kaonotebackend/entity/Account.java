@@ -71,18 +71,37 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", password='" + password + '\'' +
-                ", isExpired=" + isExpired +
-                ", isLocked=" + isLocked +
-                ", isCredentialsExpired=" + isCredentialsExpired +
-                ", isEnabled=" + isEnabled +
-                ", notes=" + notes +
-                ", tasks=" + tasks +
-                '}';
+        String string;
+        if (password != null && !password.isBlank()) {
+            string = "Account{" +
+                    "id=" + id +
+                    ", email='" + email + '\'' +
+                    ", firstName='" + firstName + '\'' +
+                    ", lastName='" + lastName + '\'' +
+                    ", password='" + "*****" + '\'' +
+                    ", isExpired=" + isExpired +
+                    ", isLocked=" + isLocked +
+                    ", isCredentialsExpired=" + isCredentialsExpired +
+                    ", isEnabled=" + isEnabled +
+                    ", notes=" + notes +
+                    ", tasks=" + tasks +
+                    '}';
+        } else {
+            string = "Account{" +
+                    "id=" + id +
+                    ", email='" + email + '\'' +
+                    ", firstName='" + firstName + '\'' +
+                    ", lastName='" + lastName + '\'' +
+                    ", password='" + password + '\'' +
+                    ", isExpired=" + isExpired +
+                    ", isLocked=" + isLocked +
+                    ", isCredentialsExpired=" + isCredentialsExpired +
+                    ", isEnabled=" + isEnabled +
+                    ", notes=" + notes +
+                    ", tasks=" + tasks +
+                    '}';
+        }
+
+        return string;
     }
 }

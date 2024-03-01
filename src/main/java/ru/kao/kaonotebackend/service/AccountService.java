@@ -19,7 +19,9 @@ public class AccountService {
     private final AccountRepository repository;
 
     public Account getAccount(String email) {
-        return repository.findByEmail(email);
+        Account account = repository.findByEmail(email);
+        logger.debug("Returning the account - {}", account);
+        return account;
     }
 
     public boolean existsAccount(String email) {
